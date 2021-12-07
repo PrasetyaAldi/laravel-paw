@@ -1,9 +1,10 @@
 @extends('layouts.master')
 @section('title','Home | admin')
+@section('admin','|| ADMIN')
 @section('content')
-			@if(session('sukses'))
+			@if(session('success'))
 				<div class="alert alert-success" role="alert">
-					{{session('sukses')}}
+					{{session('success')}}
 				</div>
 			@endif
 			<div class="row">
@@ -21,7 +22,7 @@
 						<th>Nama Depan</th>
 						<th>Nama Belakang</th>
 						<th>Posisi</th>
-						<th>Domisili</th>
+						<th>Alamat</th>
 						<th>Aksi</th>
 					</tr>
 					@foreach($data_member as $member)
@@ -29,10 +30,10 @@
 						<td>{{$member->nama_depan}}</td>
 						<td>{{$member->nama_belakang}}</td>
 						<td>{{$member->posisi}}</td>
-						<td>{{$member->domisili}}</td>
+						<td>{{$member->alamat}}</td>
 						<td>
-							<!-- <a href="/member/{{$member->id}}/edit" class="btn btn-warning btn-sm">Edit
-							<a href="/member/{{$member->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau di hapus?')">Delete</a> -->
+							<a href="/admin/{{$member->id}}/edit" class="btn btn-warning btn-sm">Edit
+							<a href="/admin/{{$member->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau di hapus?')">Delete</a>
 
 						</td>
 					</tr>
@@ -50,7 +51,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form action="/member/create" method="POST">
+				<form action="{{ route('member.create') }}" method="POST">
 						{{csrf_field()}}
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Nama Depan</label>
@@ -68,8 +69,8 @@
 					</div>
 
 					<div class="mb-3">
-				   		<label for="exampleInputEmail1" class="form-label">Domisili</label>
-				    	<input name="domisili" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Domisilis">
+				   		<label for="exampleInputEmail1" class="form-label">alamat</label>
+				    	<input name="alamat" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Domisilis">
 					</div>
 
 					<div class="modal-footer">

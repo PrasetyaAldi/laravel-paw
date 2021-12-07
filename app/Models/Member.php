@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     protected $table = 'member';
-    protected $fillable = ['nama_depan','nama_belakang','posisi','domisili'];
+    protected $fillable = ['nama_depan','nama_belakang','posisi','alamat'];
 }

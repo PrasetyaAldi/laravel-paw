@@ -1,15 +1,15 @@
 @extends('layouts.master')
-
+@section('title','Edit | admin')
 @section('content')
 			<h1>Edit Data</h1>
-			@if(session('sukses'))
+			@if(session('success'))
 				<div class="alert alert-success" role="alert">
-					{{session('sukses')}}
+					{{session('success')}}
 				</div>
 			@endif
 			<div class="row">
 				<div class="col-lg-12">
-				<form action="/member/{{$member->id}}/update" method="POST">
+				<form action="/admin/{{$member->id}}/update" method="POST">
 						{{csrf_field()}}
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Nama Depan</label>

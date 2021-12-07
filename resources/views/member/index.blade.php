@@ -29,11 +29,9 @@
 						<td>{{$member->nama_depan}}</td>
 						<td>{{$member->nama_belakang}}</td>
 						<td>{{$member->posisi}}</td>
-						<td>{{$member->domisili}}</td>
+						<td>{{$member->alamat}}</td>
 						<td>
 							<a href="/member/{{$member->id}}/edit" class="btn btn-warning btn-sm">Edit
-							<a href="/member/{{$member->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau di hapus?')">Delete</a>
-
 						</td>
 					</tr>
 					@endforeach
@@ -68,8 +66,8 @@
 					</div>
 
 					<div class="mb-3">
-				   		<label for="exampleInputEmail1" class="form-label">Domisili</label>
-				    	<input name="domisili" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Domisilis">
+				   		<label for="exampleInputEmail1" class="form-label">Alamat</label>
+				    	<input name="alamat" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Domisilis">
 					</div>
 
 					<div class="modal-footer">

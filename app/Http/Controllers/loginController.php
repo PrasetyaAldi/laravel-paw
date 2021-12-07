@@ -12,7 +12,7 @@ class loginController extends Controller
 {
     // login
     public function index(){
-        return view('admin.login');
+        return view('login');
     }
     // postlogin
     public function postLogin(Request $request){
@@ -26,21 +26,22 @@ class loginController extends Controller
             if(Hash::check($request->password, $query->password)){
                 if($query->isadmin=='1'){
                     $request->session()->put('LoggedUser',$query->id);
-                    return redirect('/adminindex');
+                    return redirect('/admin');
                 }else{
+                    $request->session()->put('LoggedUser',$query->id);
                     return redirect('/member');
                 }
             }else{
                 return back()->with('failed','Password salah!!');
             }
         }else{
-            return back()->with('failed','Gagal Login!!');
+            return back()->with('failed','email tidak terdaftar!!');
         }
     }
 
     // register
     public function registerView(){
-        return view('admin.register');
+        return view('register');
     }
     // post register
     // validasi register

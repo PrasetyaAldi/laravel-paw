@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
 	public function index()
 	{
-		$data_member = \App\Models\Member::all();
+		$data_member = Member::all();
 		return view('member.index',['data_member' =>$data_member]);
 	}
 
